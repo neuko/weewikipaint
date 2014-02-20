@@ -1,2 +1,6 @@
 WeeWikiPaint
 An exercise in professional test-driven development in JS and Node
+
+To build:
+- Assumes presence of Node.js
+- Run ./jake.sh to build
