@@ -1,31 +1,10 @@
-//// script covering tests using Jake
-//
-//desc("")
-//task ("default", [], function() {
-//   console.log("default");
-//});
-//
-//desc("example");
-//task("example", ["dependency"], function () {
-//   console.log("example task");
-//});
-//
-//task("dependency", function() {
-//    console.log("dependency");
-//});
-
+// Jakefile is a collection of tests based on jake
 
 desc("default");
-task("default", ["Anotherdependency", "dependency"], function () {
-    console.log("default");
-});
+task("default", ["lint"]);
 
-desc("dependency");
-task("dependency", [], function () {
-   console.log("dependency");
-});
-
-desc("Anotherdependency");
-task("Anotherdependency", [], function () {
-    console.log("Anotherdependency");
+desc("lint everything");
+task("lint", [], function () {
+   var lint = require("./build/lint/lint_runner.js");
+    lint.validateFile("Jakefile.js", {},{});
 });
